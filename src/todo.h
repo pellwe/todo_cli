@@ -34,6 +34,9 @@ class todo_list {
                     if(previous == nullptr) { //checks if the target task is the first task(the head)
                         head = current->next; //removes the head from the list by pointing head to the next task
                     }
+                    else if(current == tail) { //ensures that tail is always a valid task (and the last task)
+                        tail = previous;
+                    }
                     else { //if the target task was not the head(so any task after the first one) then this will be whats run
                         previous->next = current->next; //skip over current, removing it from the list
                     }
@@ -73,6 +76,15 @@ class todo_list {
             while(current != nullptr) {
                 std::cout<<current->name<<": "<<current->completed<<"\n\n";
                 current = current->next;
+            }
+        }
+    
+        ~todo_list() { //this is a destructor, it cleans up the memory when the program closes
+            task* current = head;
+            while(current == nullptr) {
+                task* next_task = current->next;
+                delete current;
+                current = next_task;
             }
         }
 
