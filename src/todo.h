@@ -27,7 +27,6 @@ class todo_list {
             std::string target = get_name();
             task* current = head; //points to the address of the current task, which atp is the head of the linked list  
             task* previous = nullptr; //points to the task before the current, atp being nothing as the current is the first
-            task* task_to_delete = current;
 
             while(current != nullptr) {  //while the current task is not a nullptr(nothing) the function searches for the target 
                 if(current->name == target) { //checks if the current tasks name is the same as the target task
@@ -40,7 +39,7 @@ class todo_list {
                     else { //if the target task was not the head(so any task after the first one) then this will be whats run
                         previous->next = current->next; //skip over current, removing it from the list
                     }
-                    delete task_to_delete; //frees the memory that was used for the deleted task
+                    delete current; //frees the memory that was used for the deleted task
                     std::cout<<"task deleted!\n";
                     return 0;
                 }
