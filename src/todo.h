@@ -30,7 +30,11 @@ class todo_list {
 
             while(current != nullptr) {  //while the current task is not a nullptr(nothing) the function searches for the target 
                 if(current->name == target) { //checks if the current tasks name is the same as the target task
-                    if(previous == nullptr) { //checks if the target task is the first task(the head)
+                    if(head == tail) {
+                        head = nullptr;
+                        tail = nullptr;
+                    }
+                    else if(previous == nullptr) { //checks if the target task is the first task(the head)
                         head = current->next; //removes the head from the list by pointing head to the next task
                     }
                     else if(current == tail) { //ensures that tail is always a valid task (and the last task)
