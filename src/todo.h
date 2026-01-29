@@ -35,6 +35,7 @@ class todo_list {
                     }
                     else if(current == tail) { //ensures that tail is always a valid task (and the last task)
                         tail = previous;
+                        previous->next = nullptr;
                     }
                     else { //if the target task was not the head(so any task after the first one) then this will be whats run
                         previous->next = current->next; //skip over current, removing it from the list
