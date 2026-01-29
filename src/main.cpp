@@ -4,7 +4,7 @@
 int startup() {
     int choice = 0;
     std::cout<<"Welcome to ur TODO list!\nWhat would u like to do?\n";
-    std::cout<<"1. View Tasks    2. Add Task    3. Delete Task\n...";
+    std::cout<<"1. View Tasks    2. Add Task    3. Delete Task    4. Quit\n...";
     std::cin>>choice;
     return choice;
 }
@@ -23,6 +23,11 @@ int main() {
             break;
         case 3:
             list.delete_task();
+            break;
+        case 4:
+            return 0;
+        default:
+            std::cout<<"Invalid Number!";
         }
     }
 }

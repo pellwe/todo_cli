@@ -71,7 +71,7 @@ class todo_list {
             
             std::cout<<"TODO:\n";
             while(current != nullptr) {
-                std::cout<<current->name<<"\n"<<current->completed<<"\n\n";
+                std::cout<<current->name<<": "<<current->completed<<"\n\n";
                 current = current->next;
             }
         }
