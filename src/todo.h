@@ -31,12 +31,12 @@ class todo_list {
             while(current != nullptr) {  //while the current task is not a nullptr(nothing) the function searches for the target 
                 if(current->name == target) { //checks if the current tasks name is the same as the target task
                     if(previous == nullptr) { //checks if the target task is the first task(the head)
-                        head = current->next; //changes the head to the next task, removing the head and deleting the task
+                        head = current->next; //removes the head from the list by pointing head to the next task
                         std::cout<<"task deleted.\n";
                         return 0;
                     }
                     else { //if the target task was not the head(so any task after the first one) then this will be whats run
-                        previous->next = current->next; //the previous task is made equal to the current one (removing the task)
+                        previous->next = current->next; //skip over current, removing it from the list
                         std::cout<<"task deleted.\n";
                         return 0;
                     }
