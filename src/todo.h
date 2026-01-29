@@ -81,7 +81,7 @@ class todo_list {
     
         ~todo_list() { //this is a destructor, it cleans up the memory when the program closes
             task* current = head;
-            while(current == nullptr) {
+            while(current != nullptr) {
                 task* next_task = current->next;
                 delete current;
                 current = next_task;
