@@ -40,9 +40,13 @@ class todo_list {
                         std::cout<<"task deleted.\n";
                         return 0;
                     }
-                    std::cout<<"no task found with name "<<target<<"!\n";
                 }
+                else {
+                    previous = current;
+                    current = current->next;
+                }    
             } 
+            std::cout<<"could not find task with name "<<target<<"!\n";
             return 0;
         }
 
