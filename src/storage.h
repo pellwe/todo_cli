@@ -7,7 +7,7 @@ void save_tasks(std::vector<std::string> list1) {
     std::ofstream my_file("data.txt");
     std::size_t length = list1.size();
     for(std::size_t i = 0; i < length; i++) {
-        my_file<<list1[i]<<"  |\n";
+        my_file<<list1[i]<<"\n";
     }
     my_file.close();
 }
