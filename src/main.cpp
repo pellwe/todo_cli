@@ -1,5 +1,16 @@
 #include <iostream>
+#include <string>
+#include <vector>
 #include "todo.h"
+#include "storage.h"
+
+std::string get_name() {
+    std::string name = "";
+    std::cout<<"enter a task name: ";
+    std::cin.ignore();
+    std::getline(std::cin, name);
+    return name;
+}
 
 int startup() {
     int choice = 0;
@@ -11,6 +22,13 @@ int startup() {
 
 int main() {
     todo_list list;
+    
+    std::vector<std::string> loaded_tasks = load_tasks();
+    size_t length = load_tasks().size();
+    for(size_t i = 0; i < length; i++) {
+        list.add_task(loaded_tasks[i]);
+    }
+
     bool active = true;
     
     while(active) {
@@ -19,12 +37,13 @@ int main() {
             list.print_list();
             break;
         case 2:
-            list.add_task();
+            list.add_task(get_name());
             break;
         case 3:
-            list.delete_task();
+            list.delete_task(get_name());
             break;
         case 4:
+            save_tasks(list.get_values());
             return 0;
         default:
             std::cout<<"Invalid Number!";

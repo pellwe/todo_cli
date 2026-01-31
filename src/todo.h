@@ -1,13 +1,6 @@
 #include <iostream>
 #include <string>
-
-std::string get_name() {
-    std::string name = "";
-    std::cout<<"enter a task name: ";
-    std::cin.ignore(); //clears any newlines that may have been lingering (therefore preventing the program from moving on without taking user input)
-    std::getline(std::cin, name); //used instead of std::cin as it can take in whitespaces too
-    return name;
-}
+#include <vector>
 
 struct task {    
     std::string name = "";
@@ -22,9 +15,18 @@ class todo_list {
             head = nullptr; 
             tail = nullptr;
         }
+
+        std::vector<std::string> get_values() {
+            task* current = head;
+            std::vector<std::string> values;
+            while(current != nullptr) {
+                values.push_back(current->name);
+                current = current->next;
+            }
+            return values;
+        }
         
-        int delete_task() {
-            std::string target = get_name();
+        int delete_task(std::string target) {
             task* current = head; //points to the address of the current task, which atp is the head of the linked list  
             task* previous = nullptr; //points to the task before the current, atp being nothing as the current is the first
 
@@ -57,8 +59,7 @@ class todo_list {
             return 0;
         }
 
-        void add_task() {   //adds a new task to the end of the list
-            std::string task_name = get_name();
+        void add_task(std::string task_name) {   //adds a new task to the end of the list
             task* temp = new task;
             temp->name = task_name;
             temp->next = nullptr;
