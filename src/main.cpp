@@ -15,7 +15,7 @@ std::string get_name() {
 int startup() {
     int choice = 0;
     std::cout<<"Welcome to ur TODO list!\nWhat would u like to do?\n";
-    std::cout<<"1. View Tasks    2. Add Task    3. Delete Task    4. Quit\n...";
+    std::cout<<"1. View Tasks    2. Add Task    3. Complete Task    4. Delete Task    5. Quit\n...";
     std::cin>>choice;
     return choice;
 }
@@ -40,9 +40,12 @@ int main() {
             list.add_task(get_name());
             break;
         case 3:
-            list.delete_task(get_name());
+            list.access_task(get_name(), false); //remember to add the edit/delete feature !!!
             break;
         case 4:
+            list.access_task(get_name(), true);
+            break;
+        case 5:
             save_tasks(list.get_values());
             return 0;
         default:
