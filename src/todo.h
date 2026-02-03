@@ -62,6 +62,7 @@ class todo_list {
                         std::cout<<"Task Completed !\n";
                         return 0;
                     }
+                }
                 else { //this advances the checking to the next task, as the task just checked was not the target
                         previous = current;
                         current = current->next;    
@@ -105,3 +106,4 @@ class todo_list {
             }
         }
 };
+
