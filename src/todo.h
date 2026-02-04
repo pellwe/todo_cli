@@ -72,9 +72,12 @@ class todo_list {
             return 0;
         }
 
-        void add_task(std::string task_name) {   //adds a new task to the end of the list
+        void add_task(std::string task_name, bool state) {   //adds a new task to the end of the list
             task* temp = new task;
             temp->name = task_name;
+            if(state) {
+                temp->completed = true;
+            }
             temp->next = nullptr;
 
             if(head == nullptr) {

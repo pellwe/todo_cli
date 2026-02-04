@@ -27,8 +27,8 @@ int main() {
     
     std::vector<std::string> loaded_tasks = load_tasks();
     size_t length = load_tasks().size();
-    for(size_t i = 0; i < length; i++) {
-        list.add_task(loaded_tasks[i]);
+    for(size_t i = 0; i < length; i+=2) {
+        list.add_task(loaded_tasks[i], std::stoi(loaded_tasks[i+1]));
     }
 
     bool active = true;
@@ -39,7 +39,7 @@ int main() {
             list.print_list();
             break;
         case 2:
-            list.add_task(get_name());
+            list.add_task(get_name(), false);
             break;
         case 3:
             list.access_task(get_name(), false); //remember to add the edit/delete feature !!!
