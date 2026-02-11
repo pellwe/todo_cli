@@ -5,6 +5,7 @@
 #include <utility>
 #include "todo.h"
 #include "storage.h"
+#include "streaks.h"
 
 std::string get_name() {
     std::string name = "";
@@ -23,6 +24,7 @@ int startup() {
 }
 
 int main() {
+    std::cout<<get_completion();
     todo_list list;
     
     std::vector<std::string> loaded_tasks = load_tasks();

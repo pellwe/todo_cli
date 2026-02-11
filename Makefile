@@ -1,5 +1,5 @@
-CXX = g++
-CXXFLAGS = -std=c++20 -Wall -Wextra
+CXX = clang++
+CXXFLAGS = -g -std=c++20 -Wall -Wextra
 TARGET = app
 SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:.cpp=.o)

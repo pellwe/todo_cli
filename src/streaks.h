@@ -2,7 +2,7 @@
 #include <chrono>
 
 struct streak {
-    std::chrono::year_month_day last_completion_date = 0;
+    std::chrono::year_month_day last_completion_date;
     int streak_count = 0;
 
     std::chrono::year_month_day get_completion() {
