@@ -1,8 +1,10 @@
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <utility>
+#include <chrono>
 #include "todo.h"
 #include "storage.h"
 #include "streaks.h"
@@ -24,7 +26,8 @@ int startup() {
 }
 
 int main() {
-    std::cout<<get_completion();
+    streak s1;
+    std::cout<<s1.get_completion();
     todo_list list;
     
     std::vector<std::string> loaded_tasks = load_tasks();
